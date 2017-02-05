@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTotalTip;
     TextView tvTipPerPerson;
     CheckBox cbService;
+    RadioButton rb1, rb2, rb3, rb4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +32,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickButtonCalc(View view) {
 Double bill = Double.parseDouble(etBill.getText().toString());
-        Double numPeople = Double.parseDouble(etNumPeople.getText().toString());
-        Double totalTip;
+        //Double numPeople = Double.parseDouble(etNumPeople.getText().toString()); //This works with TextBox
+        Integer numPeople = 1; //default number of people
 
+        if(rb1.isChecked()){
+            numPeople = 1;
+        }
+        else if(rb2.isChecked()){
+            numPeople = 2;
+        }
+        else if(rb3.isChecked()){
+            numPeople = 3;
+        }
+        else if(rb4.isChecked()){
+            numPeople = 4;
+        }
+        Double totalTip;
        if(cbService.isChecked()){
            totalTip = bill * 0.2; //for outstanding services
        }else{
