@@ -34,9 +34,9 @@ Double bill = Double.parseDouble(etBill.getText().toString());
         Double totalTip;
 
        if(cbService.isChecked()){
-           totalTip = bill * 0.2;
+           totalTip = bill * 0.2; //for outstanding services
        }else{
-           totalTip = bill * 0.1;
+           totalTip = bill * 0.1; //for regular services
        }
 
         Double tipPerson = totalTip/numPeople;
